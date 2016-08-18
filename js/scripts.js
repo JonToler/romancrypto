@@ -2,6 +2,8 @@
 function roman(decimal){
   var decimalInNumType = parseInt(decimal);
   var romanNumber = "";
+  var numerals =["I","V","X","L","C","D","M"];
+  var numeralIndex = 0;
   var arrOfDigitsInStringType = decimal.split("");
   var arrOfDigitsInNumType = [];
   if ((decimalInNumType <= 0) || (decimalInNumType >= 4000)){
@@ -10,29 +12,29 @@ function roman(decimal){
   for (var i = 0; i < arrOfDigitsInStringType.length; i++) {
     arrOfDigitsInNumType[i] = parseInt(arrOfDigitsInStringType[i]);
   }
+  //debugger;
+  arrOfDigitsInNumType = arrOfDigitsInNumType.reverse();
+  alert(arrOfDigitsInNumType);
   for (var i = 0; i < arrOfDigitsInNumType.length; i++) {
     if(arrOfDigitsInNumType[i] < 4){
       for (var digit = 0; digit < arrOfDigitsInNumType[i]; digit++) {
-        romanNumber += "I";
+        romanNumber = numerals[numeralIndex] + romanNumber;
       }
     }
     else if (arrOfDigitsInNumType[i] === 4) {
-      omanNumber += "IV";
+      romanNumber = (numerals[numeralIndex]+ numerals[numeralIndex+1]) + romanNumber;
     }
-    else if(arrOfDigitsInNumType[i] === 5){
-      romanNumber += "V";
-    }
-    else if (arrOfDigitsInNumType[i]> 5 && (arrOfDigitsInNumType[i] < 9)){
-      romanNumber += "V" ;
+    else if (arrOfDigitsInNumType[i]>= 5 && (arrOfDigitsInNumType[i] < 9)){
+      romanNumber = numerals[numeralIndex+1] + romanNumber;
       for (var digit = 0; digit < (arrOfDigitsInNumType[i] - 5); digit++) {
-        romanNumber += "I";
+        romanNumber = numerals[numeralIndex] + romanNumber;
       }
     }
     else{
-      romanNumber += "IX" ;
+      romanNumber = (numerals[numeralIndex]+ numerals[numeralIndex+2]) + romanNumber ;
     }
+    numeralIndex +=2;
   }
-  alert(romanNumber);
   return romanNumber;
 }
 //UI logic
