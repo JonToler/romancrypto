@@ -1,6 +1,6 @@
-# _Leap Year Detector, Pig Latin Translator and Trinary/Binary converters_
+# Roman Numeral converter and Cryptosquare
 
-#### _A web page which tells you if the year is a leap year or translate sentences into pig latin. Also it has Trinary/Binary converters. August 17, 2016_
+#### _A web page which coverts Arabic numbers to Roman numerals. August 18, 2016_
 
 #### By _**Jon Toler and Yusuf Qedan**_
 

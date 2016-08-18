@@ -27,7 +27,6 @@ function roman(decimal){
     }
     else if (arrOfDigitsInNumType[i]>= 5 && (arrOfDigitsInNumType[i] < 9)){
       // if digit is 5-8
-      //romanNumber = numerals[numeralIndex+1] + romanNumber;
       for (var j = 0; j < (arrOfDigitsInNumType[i] - 5); j++) {
         //adds extra numerals ex digit 7 in hundreds place
         romanNumber = numerals[numeralIndex] + romanNumber;
