@@ -41,13 +41,36 @@ function roman(decimal){
   }
   return romanNumber;
 }
+
+function crypto(message){
+  var encryptedMessage = "";
+
+  var arrayOfChar = message.split("");
+  var arrLength =  arrayOfChar.length;
+  alert(arrLength);
+
+
+  encryptedMessage = message;
+  return encryptedMessage;
+
+
+}
 //UI logic
 $(document).ready(function() {
   $("form#roman").submit(function(event){
+    event.preventDefault();
     $("#hidden1").hide();
     var number = roman($("#decimal").val());
     $("#romanAnswer").text(number);
     $("#hidden1").slideDown();
-    event.preventDefault();
+
   });
+  $("form#cryptosquareForm").submit(function(event){
+    event.preventDefault();
+    $("#hidden2").hide();
+    var text = ($("#message").val());
+    $("#encryptedMessage").text(crypto(text));
+    $("#hidden2").slideDown();
+  });
+
 });

@@ -1,6 +1,6 @@
 # Roman Numeral converter and Cryptosquare
 
-#### _A web page which coverts Arabic numbers to Roman numerals. August 18, 2016_
+#### _A web page which coverts Arabic numbers to Roman numerals.  and A Cryptosquare, which is a classic tool for composing secret messages is called a square code. August 18, 2016 _
 
 #### By _**Jon Toler and Yusuf Qedan**_
 
