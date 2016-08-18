@@ -11,14 +11,30 @@ function roman(decimal){
     arrOfDigitsInNumType[i] = parseInt(arrOfDigitsInStringType[i]);
   }
   for (var i = 0; i < arrOfDigitsInNumType.length; i++) {
-    for(var j = 1; j <= arrOfDigitsInNumType[i];j++){
-      romanNumber += "I";
+    if(arrOfDigitsInNumType[i] < 4){
+      for (var digit = 0; digit < arrOfDigitsInNumType[i]; digit++) {
+        romanNumber += "I";
+      }
+    }
+    else if (arrOfDigitsInNumType[i] === 4) {
+      omanNumber += "IV";
+    }
+    else if(arrOfDigitsInNumType[i] === 5){
+      romanNumber += "V";
+    }
+    else if (arrOfDigitsInNumType[i]> 5 && (arrOfDigitsInNumType[i] < 9)){
+      romanNumber += "V" ;
+      for (var digit = 0; digit < (arrOfDigitsInNumType[i] - 5); digit++) {
+        romanNumber += "I";
+      }
+    }
+    else{
+      romanNumber += "IX" ;
     }
   }
   alert(romanNumber);
   return romanNumber;
 }
-
 //UI logic
 $(document).ready(function() {
   $("form#roman").submit(function(event){
@@ -27,6 +43,5 @@ $(document).ready(function() {
     $("#romanAnswer").text(number);
     $("#hidden1").slideDown();
     event.preventDefault();
-    alert(decimalInNumType);
   });
 });
