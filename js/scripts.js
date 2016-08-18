@@ -10,50 +10,68 @@ function roman(decimal){
     return "Please enter a number between 1 and 3999";
   }
   for (var i = 0; i < arrOfDigitsInStringType.length; i++) { //builds our converted array ex ["2","5","4","3"] is now [2,5,4,3]
-    arrOfDigitsInNumType[i] = parseInt(arrOfDigitsInStringType[i]);
+  arrOfDigitsInNumType[i] = parseInt(arrOfDigitsInStringType[i]);
+}
+arrOfDigitsInNumType = arrOfDigitsInNumType.reverse(); //reverses our converted array ex [2,5,4,3] is now [3,4,5,2]
+for (var i = 0; i < arrOfDigitsInNumType.length; i++) {
+  if(arrOfDigitsInNumType[i] < 4){
+    // if digit is 1-3
+    for (var j = 0; j < arrOfDigitsInNumType[i]; j++) {
+      //adds extra numerals ex digit 3 in tens place is III or digit 2 in 1000s place is MM
+      romanNumber = numerals[numeralIndex] + romanNumber;
+    }
   }
-  arrOfDigitsInNumType = arrOfDigitsInNumType.reverse(); //reverses our converted array ex [2,5,4,3] is now [3,4,5,2]
-  for (var i = 0; i < arrOfDigitsInNumType.length; i++) {
-    if(arrOfDigitsInNumType[i] < 4){
-      // if digit is 1-3
-      for (var j = 0; j < arrOfDigitsInNumType[i]; j++) {
-        //adds extra numerals ex digit 3 in tens place is III or digit 2 in 1000s place is MM
-        romanNumber = numerals[numeralIndex] + romanNumber;
-      }
-    }
-    else if (arrOfDigitsInNumType[i] === 4) {
-      // if digit is 4
-      romanNumber = (numerals[numeralIndex]+ numerals[numeralIndex+1]) + romanNumber;
-    }
-    else if (arrOfDigitsInNumType[i]>= 5 && (arrOfDigitsInNumType[i] < 9)){
-      // if digit is 5-8
-      for (var j = 0; j < (arrOfDigitsInNumType[i] - 5); j++) {
-        //adds extra numerals ex digit 7 in hundreds place
-        romanNumber = numerals[numeralIndex] + romanNumber;
-      }
-      romanNumber = numerals[numeralIndex+1] + romanNumber;
-    }
-    else{
-      // if digit is 9
-      romanNumber = (numerals[numeralIndex]+ numerals[numeralIndex+2]) + romanNumber ;
-    }
-    numeralIndex +=2; // changes our index so we can move up 1 power of ten
+  else if (arrOfDigitsInNumType[i] === 4) {
+    // if digit is 4
+    romanNumber = (numerals[numeralIndex]+ numerals[numeralIndex+1]) + romanNumber;
   }
-  return romanNumber;
+  else if (arrOfDigitsInNumType[i]>= 5 && (arrOfDigitsInNumType[i] < 9)){
+    // if digit is 5-8
+    for (var j = 0; j < (arrOfDigitsInNumType[i] - 5); j++) {
+      //adds extra numerals ex digit 7 in hundreds place
+      romanNumber = numerals[numeralIndex] + romanNumber;
+    }
+    romanNumber = numerals[numeralIndex+1] + romanNumber;
+  }
+  else{
+    // if digit is 9
+    romanNumber = (numerals[numeralIndex]+ numerals[numeralIndex+2]) + romanNumber ;
+  }
+  numeralIndex +=2; // changes our index so we can move up 1 power of ten
+}
+return romanNumber;
 }
 
 function crypto(message){
   var encryptedMessage = "";
-
+  var encrypedArray = [];
   var arrayOfChar = message.split("");
   var arrLength =  arrayOfChar.length;
-  alert(arrLength);
-
-
-  encryptedMessage = message;
+  //alert(arrLength);
+  var Cryptosquare = [];
+  var colLength = 5;
+  var rowLength = 5;
+  var ArrIndex = 0;
+  for(var i=0; i<colLength; i++) {
+    Cryptosquare[i] = new Array(rowLength);
+  }
+  for (var i = 0; i < rowLength; i++) {
+    for (var k = 0; k < colLength; k++) {
+      Cryptosquare[k][i] = arrayOfChar[ArrIndex];
+      ArrIndex++;
+    }
+  }
+  ArrIndex = 0;
+  for (var i = 0; i < colLength; i++) {
+    for (var k = 0; k < rowLength; k++) {
+      encrypedArray[ArrIndex] = Cryptosquare[i][k];
+      ArrIndex++;
+    }
+  }
+  alert(encrypedArray);
+  encryptedMessage = encrypedArray.join("");
+  alert(encryptedMessage);
   return encryptedMessage;
-
-
 }
 //UI logic
 $(document).ready(function() {
