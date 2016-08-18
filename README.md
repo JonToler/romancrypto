@@ -10,7 +10,7 @@
 Input: -1 or 4000 Output: "Please enter a number between 1 and 3999"_
 * _Output number of symbols equal to the number entered for numbers >4 Input: 2 Ouput: II_
 * _If the digit is a 4 or 9 subtract the next highest  numeral subtract 1. EX: 4 is not IIII it is 5 minus 1, which is IV._
-* _stuff goes here_
+* _Adding MSD to LSD and changing the character to "I","V","X","L","C","D","M" respectively_
 
 
 ##### Cryptosquare
